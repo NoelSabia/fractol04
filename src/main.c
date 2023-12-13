@@ -12,6 +12,11 @@
 
 #include "./fractol.h"
 
+void	initialize_window(void)
+{
+
+}
+
 int	main(int argc, char **argv)
 {
 	if (argc < 2)
@@ -25,4 +30,7 @@ int	main(int argc, char **argv)
 		julia();
 	else
 		ft_printf("./fractol <mandelbrot/julia> <x for julia> <y for julia>\n");
+	initialize_window();
+	mlx_t* mlx = mlx_init(WIDTH, HEIGHT, "42Balls", true);
+	mlx_loop(mlx);
 }

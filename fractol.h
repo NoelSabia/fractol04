@@ -23,7 +23,11 @@
 
 typedef struct s_fractol
 {
-	
+    int             mx;
+    int             my;
+    int             jx;
+    int             jy;
+    mlx_t*          mlx;
 }				t_fractol;
 
 /*Dimensions*/
