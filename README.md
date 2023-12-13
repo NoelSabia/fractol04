@@ -27,10 +27,25 @@ If the number is an infinite number show it in color 2
 6. If the suite converges, color the pixel in black.
 
 # Functions
+| Fcts | My functions| does|
+|-|-|-|
+| .gitignore | .gitignore| ignores certain files |
+| Makefile | Makefile | Automation |
+| fractol.c | main.c | checks args, initialize, fractolpic,... |
+| fractol.h | fractol.h | two structs, #defines, libs, functs |
+| algorithm.c | mandelbrot.c | for each y number the hole x row plus color | 
+| algorithm2.c | julia.c | for each y number the hole x row plus color |
+| utils.c | coloring.c | important for both sets to color number correctly with mlx_put_pixel |
+| hooks.c | external_input | mouse and keyboard input handling check again |
+
 ## Main
-- set x and y to 0
-- two while loops (first for x, second for y)
-- inside of secons while loop --> if (strncmp mandel or julia with input) | else ft_putendl_fd and exit
-- mlx_put_image_to_window();
-## ft_mandelbrot
-- 
+- The code defines a program for visualizing fractals.
+- The main function initializes a t_fract structure, mlx_t and mlx_image_t objects.
+- The print_usage function prints usage information if the command-line arguments are incorrect.
+- The convert_argv function converts command-line arguments to floating-point numbers for Julia set parameters.
+- The routines function determines the fractal set based on command-line arguments and calls relevant functions.
+- The initialize function sets default values for the fractal parameters in the t_fract structure.
+- The program uses the mlx library for graphical operations, including window creation and event handling.
+- The main function checks command-line arguments, initializes fractal parameters, and sets up the graphical environment.
+- Various hooks are registered for handling keyboard, mouse, and window events.
+- The program enters the mlx event loop to continuously update and display the fractal.
