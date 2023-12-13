@@ -27,10 +27,14 @@ If the number is an infinite number show it in color 2
 6. If the suite converges, color the pixel in black.
 
 # Functions
-## Main
-- set x and y to 0
-- two while loops (first for x, second for y)
-- inside of secons while loop --> if (strncmp mandel or julia with input) | else ft_putendl_fd and exit
-- mlx_put_image_to_window();
-## ft_mandelbrot
-- 
+| Fcts | My functions| does|
+|-|-|-|
+| .gitignore | .gitignore| ignores certain files |
+| Makefile | Makefile | Automation |
+| fractol.c | fractol.c | checks args, initialize, fractolpic,... |
+| fractol.h | fractol.h | two structs, #defines, libs, functs |
+| algorithm.c | mandelbrot.c | for each y number the hole x row plus color | 
+| algorithm2.c | julia.c | for each y number the hole x row plus color |
+| utils.c | coloring.c | important for both sets to color number correctly with mlx_put_pixel |
+| hooks.c | external_input | mouse and keyboard input handling check again |
+
