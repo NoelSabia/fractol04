@@ -6,7 +6,7 @@
 /*   By: nsabia <nsabia@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/13 10:40:40 by nsabia            #+#    #+#             */
-/*   Updated: 2023/12/14 19:06:13 by nsabia           ###   ########.fr       */
+/*   Updated: 2023/12/14 19:13:36 by nsabia           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,6 +45,7 @@ typedef struct s_fractol
 
 /*C-Files*/
 void	mandelbrot(t_fractol *fract);
+int		mandelbrot_helper(t_fractol *fract);
 void	julia(int jx, int jy);
 void	choose_fractal(int argc, char **argv, t_fractol *fract);
 
