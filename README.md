@@ -49,3 +49,9 @@ If the number is an infinite number show it in color 2
 - The main function checks command-line arguments, initializes fractal parameters, and sets up the graphical environment.
 - Various hooks are registered for handling keyboard, mouse, and window events.
 - The program enters the mlx event loop to continuously update and display the fractal.
+
+To Do`s:
+- Window erstellen (done)
+- mandelbrot main 
+- eine Eval
+- structs verstehen

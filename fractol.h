@@ -6,7 +6,7 @@
 /*   By: nsabia <nsabia@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/13 10:40:40 by nsabia            #+#    #+#             */
-/*   Updated: 2023/12/13 19:18:22 by nsabia           ###   ########.fr       */
+/*   Updated: 2023/12/14 12:38:35 by nsabia           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,11 +23,11 @@
 
 typedef struct s_fractol
 {
-    int             mx;
-    int             my;
-    int             jx;
-    int             jy;
-    mlx_t*          mlx;
+	int			mx;
+	int			my;
+	int			jx;
+	int			jy;
+	mlx_t*		mlx;
 }				t_fractol;
 
 /*Dimensions*/
@@ -37,6 +37,7 @@ typedef struct s_fractol
 
 /*C-Files*/
 void	mandelbrot(void);
-void	julia(void);
+void	julia(int jx, int jy);
+void	choose_fractal(int argc, char **argv, t_fractol *fract);
 
 #endif

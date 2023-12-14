@@ -6,13 +6,13 @@
 /*   By: nsabia <nsabia@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/13 14:44:02 by nsabia            #+#    #+#             */
-/*   Updated: 2023/12/13 14:44:11 by nsabia           ###   ########.fr       */
+/*   Updated: 2023/12/14 12:42:16 by nsabia           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "./fractol.h"
 
-void	julia(void)
+void	julia(int jx, int jy)
 {
 	printf("julia\n");
 }
