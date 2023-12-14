@@ -6,7 +6,7 @@
 /*   By: nsabia <nsabia@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/13 10:40:40 by nsabia            #+#    #+#             */
-/*   Updated: 2023/12/14 12:38:35 by nsabia           ###   ########.fr       */
+/*   Updated: 2023/12/14 19:06:13 by nsabia           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,27 +16,35 @@
 # include <stdio.h>
 # include <unistd.h>
 # include <stdlib.h>
-# include <memory.h>
+# include <complex.h>
 # include "./Libft00/libft.h"
 # include "./ft_printf01-master/ft_printf.h"
 # include "MLX42-master/include/MLX42/MLX42.h"
 
 typedef struct s_fractol
 {
-	int			mx;
-	int			my;
-	int			jx;
-	int			jy;
-	mlx_t*		mlx;
+	double			x;
+	double			y;
+	int				mx;
+	int				my;
+	int				jx;
+	int				jy;
+	mlx_t			*mlx;
+	mlx_image_t		*img;
 }				t_fractol;
 
 /*Dimensions*/
 # define WIDTH 2560
 # define HEIGHT 1315
-# define MAX_ITER 60
+# define MAX_ITER 70
+# define SCALE_FACTOR_X (3.5 / WIDTH)
+# define SCALE_FACTOR_Y (2.0 / HEIGHT)
+#define ZOOM 4.0
+#define OFFSETX 0.0
+#define OFFSETY 0.0
 
 /*C-Files*/
-void	mandelbrot(void);
+void	mandelbrot(t_fractol *fract);
 void	julia(int jx, int jy);
 void	choose_fractal(int argc, char **argv, t_fractol *fract);
 

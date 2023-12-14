@@ -52,6 +52,7 @@ If the number is an infinite number show it in color 2
 
 To Do`s:
 - Window erstellen (done)
-- mandelbrot main 
-- eine Eval
-- structs verstehen
+- mandelbrot main (done)
+- eine Eval (done)
+- structs verstehen (done)
+- Weiterbildung (done)

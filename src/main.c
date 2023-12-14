@@ -6,11 +6,17 @@
 /*   By: nsabia <nsabia@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/13 14:09:23 by nsabia            #+#    #+#             */
-/*   Updated: 2023/12/14 12:42:26 by nsabia           ###   ########.fr       */
+/*   Updated: 2023/12/14 18:48:59 by nsabia           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "./fractol.h"
+
+void	freeing(t_fractol *fract)
+{
+	free(fract->mlx);
+	free(fract);
+}
 
 void	julia_checker(char *str2, char *str3, t_fractol *fract)
 {
@@ -38,11 +44,6 @@ void	julia_checker(char *str2, char *str3, t_fractol *fract)
 	julia(fract->jx, fract->jy);
 }
 
-void	initialize_window(void)
-{
-	
-}
-
 void	choose_fractal(int argc, char **argv, t_fractol *fract)
 {
 	if (argc < 2)
@@ -51,7 +52,7 @@ void	choose_fractal(int argc, char **argv, t_fractol *fract)
 		return ;
 	}
 	if (ft_strncmp(argv[1], "mandelbrot", 11) == 0)
-		mandelbrot();
+		mandelbrot(fract);
 	else if (ft_strncmp(argv[1], "julia", 6) == 0)
 	{
 		if (!argv[2] || !argv[3])
@@ -69,11 +70,13 @@ void	choose_fractal(int argc, char **argv, t_fractol *fract)
 int	main(int argc, char **argv)
 {
 	t_fractol	*fract;
+	mlx_image_t	*img;
 
 	fract = malloc(sizeof(t_fractol));
-	choose_fractal(argc, argv, fract);
-	initialize_window();
+	img = NULL;
 	fract->mlx = mlx_init(WIDTH, HEIGHT, "fractol", true);
+	fract->img = mlx_new_image(fract->mlx, WIDTH, HEIGHT);
+	choose_fractal(argc, argv, fract);
 	mlx_loop(fract->mlx);
-	free (fract);
+	freeing (fract);
 }
