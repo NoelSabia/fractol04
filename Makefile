@@ -13,7 +13,6 @@ SRCDIR := ./src/
 SRCS	:=  $(SRCDIR)main.c\
 				$(SRCDIR)julia.c\
 				$(SRCDIR)mandelbrot.c\
-				$(SRCDIR)coloring.c\
 				$(SRCDIR)external_input.c\
 
 OBJS	:= ${SRCS:.c=.o}

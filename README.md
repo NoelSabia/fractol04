@@ -51,8 +51,7 @@ If the number is an infinite number show it in color 2
 - The program enters the mlx event loop to continuously update and display the fractal.
 
 To Do`s:
-- Window erstellen (done)
-- mandelbrot main (done)
+- Julia ausprinten koennen (done)
 - eine Eval (done)
-- structs verstehen (done)
-- Weiterbildung (done)
+- Julia Parameter annehmen (done)
+- Mauszoom (working on)

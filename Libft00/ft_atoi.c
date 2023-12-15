@@ -6,7 +6,7 @@
 /*   By: nsabia <nsabia@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/07 10:58:10 by noel              #+#    #+#             */
-/*   Updated: 2023/10/20 11:20:32 by nsabia           ###   ########.fr       */
+/*   Updated: 2023/12/15 15:06:17 by nsabia           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,7 +31,7 @@ int	ft_atoi(const char *nptr)
 		vorzeichen *= -1;
 		i++;
 	}
-	while (nptr[i] >= '0' && nptr[i] <= '9' && nptr[i] != 0)
+	while ((nptr[i] >= '0' && nptr[i] <= '9') && nptr[i] != 0)
 	{
 		result += nptr[i] - '0';
 		result *= 10;
