@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   fractol.h                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: noel <noel@student.42.fr>                  +#+  +:+       +#+        */
+/*   By: nsabia <nsabia@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/13 10:40:40 by nsabia            #+#    #+#             */
-/*   Updated: 2023/12/16 09:22:19 by noel             ###   ########.fr       */
+/*   Updated: 2023/12/16 12:10:16 by nsabia           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,21 +23,21 @@
 
 typedef struct s_fractol
 {
+	int				fractal_type;
+	double			real;
+	double			imag;
 	double			x;
 	double			y;
 	int				mx;
 	int				my;
 	double			jx;
 	double			jy;
+	double			zoom;
+	double			offsetx;
+	double			offsety;
 	mlx_t			*mlx;
 	mlx_image_t		*img;
 }				t_fractol;
-
-typedef struct mlx_key_data
-{
-	keys_t		key;
-	action_t	action;
-}	mlx_key_data_t;
 
 /*Dimensions*/
 # define WIDTH 2560
@@ -45,8 +45,6 @@ typedef struct mlx_key_data
 # define MAX_ITER 100
 # define SCALE_FACTOR_X (3.5 / WIDTH)
 # define SCALE_FACTOR_Y (2.0 / HEIGHT)
-# define OFFSETX 0.0
-# define OFFSETY 0.0
 
 #ifndef C_RE
 # define C_RE -0.8
@@ -62,7 +60,10 @@ int		mandelbrot_helper(t_fractol *fract);
 void	julia(t_fractol *fract);
 int		julia_helper(t_fractol *fract);
 void	choose_fractal(int argc, char **argv, t_fractol *fract);
+void	freeing(t_fractol *fract);
 double	ft_atof(const char *s);
-void    press_esc(mlx_key_data_t keydata, void *params);
+void	press_esc(mlx_key_data_t keydata, void *params);
+void	mouse_scroll(double a, double b, void *params);
+void	resize_window(int width, int height, void *params);
 
 #endif

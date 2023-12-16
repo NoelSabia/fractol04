@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   main.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: noel <noel@student.42.fr>                  +#+  +:+       +#+        */
+/*   By: nsabia <nsabia@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/13 14:09:23 by nsabia            #+#    #+#             */
-/*   Updated: 2023/12/16 10:07:36 by noel             ###   ########.fr       */
+/*   Updated: 2023/12/16 12:11:28 by nsabia           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,6 +15,7 @@
 void	freeing(t_fractol *fract)
 {
 	free(fract->mlx);
+	free (fract->img);
 	free(fract);
 }
 
@@ -40,6 +41,7 @@ void	julia_checker(char *str2, char *str3, t_fractol *fract)
 	y = ft_atof(str3);
 	fract->jx = x;
 	fract->jy = y;
+	fract->fractal_type = 2;
 	julia(fract);
 }
 
@@ -78,12 +80,17 @@ int	main(int argc, char **argv)
 
 	fract = malloc(sizeof(t_fractol));
 	img = NULL;
+	mlx = NULL;
+	fract->zoom = 1.0;
+	fract->offsetx = 0.0;
+	fract->offsety = 0.0;
 	fract->mlx = mlx_init(WIDTH, HEIGHT, "fractol", true);
 	fract->img = mlx_new_image(fract->mlx, WIDTH, HEIGHT);
 	choose_fractal(argc, argv, fract);
-	mlx_key_hook(mlx, press_esc, &fract);
-	mlx_scroll_hook(mlx, ffff, &fract);
-	mlx_resize_hook(mlx, ffff, &fract);
+	mlx_key_hook(fract->mlx, press_esc, fract);
+	mlx_scroll_hook(fract->mlx, mouse_scroll, fract);
+	// mlx_resize_hook(mlx, resize_window, fract);
 	mlx_loop(fract->mlx);
 	freeing (fract);
+	return (0);
 }

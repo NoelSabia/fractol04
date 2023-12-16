@@ -14,6 +14,7 @@ SRCS	:=  $(SRCDIR)main.c\
 				$(SRCDIR)julia.c\
 				$(SRCDIR)mandelbrot.c\
 				$(SRCDIR)external_input.c\
+				$(SRCDIR)helperfunctions.c
 
 OBJS	:= ${SRCS:.c=.o}
 
