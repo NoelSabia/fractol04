@@ -54,3 +54,9 @@ To does:
 - mouse wheel zoom 
 - esc-button (not sure but maybe just one function)
 - resize
+
+To Do`s:
+- Julia ausprinten koennen (done)
+- eine Eval (done)
+- Julia Parameter annehmen (done)
+- Mauszoom (working on)
