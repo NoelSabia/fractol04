@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   fractol.h                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: nsabia <nsabia@student.42.fr>              +#+  +:+       +#+        */
+/*   By: noel <noel@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/13 10:40:40 by nsabia            #+#    #+#             */
-/*   Updated: 2023/12/15 19:45:53 by nsabia           ###   ########.fr       */
+/*   Updated: 2023/12/16 09:22:19 by noel             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -63,5 +63,6 @@ void	julia(t_fractol *fract);
 int		julia_helper(t_fractol *fract);
 void	choose_fractal(int argc, char **argv, t_fractol *fract);
 double	ft_atof(const char *s);
+void    press_esc(mlx_key_data_t keydata, void *params);
 
 #endif

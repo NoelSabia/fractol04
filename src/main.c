@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   main.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: nsabia <nsabia@student.42.fr>              +#+  +:+       +#+        */
+/*   By: noel <noel@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/13 14:09:23 by nsabia            #+#    #+#             */
-/*   Updated: 2023/12/15 19:42:31 by nsabia           ###   ########.fr       */
+/*   Updated: 2023/12/16 10:07:36 by noel             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -74,12 +74,16 @@ int	main(int argc, char **argv)
 {
 	t_fractol	*fract;
 	mlx_image_t	*img;
+	mlx_t		*mlx;
 
 	fract = malloc(sizeof(t_fractol));
 	img = NULL;
 	fract->mlx = mlx_init(WIDTH, HEIGHT, "fractol", true);
 	fract->img = mlx_new_image(fract->mlx, WIDTH, HEIGHT);
 	choose_fractal(argc, argv, fract);
+	mlx_key_hook(mlx, press_esc, &fract);
+	mlx_scroll_hook(mlx, ffff, &fract);
+	mlx_resize_hook(mlx, ffff, &fract);
 	mlx_loop(fract->mlx);
 	freeing (fract);
 }
