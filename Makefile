@@ -1,6 +1,6 @@
 NAME	:= fractol
 
-CFLAGS	:= -Wextra -Wall
+CFLAGS	:= -Wextra -Wall -Werror -O3
 
 MLX	:= MLX42-master
 

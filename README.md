@@ -56,6 +56,6 @@ To does:
 - resize
 
 to do:
-- eine eval
-- code umschreiben
+- eine eval (done)
+- code umschreiben (done)
 - zoom fixxen (done)

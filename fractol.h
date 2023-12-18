@@ -6,7 +6,7 @@
 /*   By: nsabia <nsabia@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/13 10:40:40 by nsabia            #+#    #+#             */
-/*   Updated: 2023/12/18 17:28:16 by nsabia           ###   ########.fr       */
+/*   Updated: 2023/12/18 19:27:03 by nsabia           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,8 +46,6 @@ typedef struct s_fractol
 	double			sqraa2;
 	double			sqrbb2;
 	double			zoom;
-	double			offsetx;
-	double			offsety;
 	double			width;
 	double			height;
 	mlx_t			*mlx;

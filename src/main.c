@@ -6,7 +6,7 @@
 /*   By: nsabia <nsabia@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/13 14:09:23 by nsabia            #+#    #+#             */
-/*   Updated: 2023/12/18 18:19:11 by nsabia           ###   ########.fr       */
+/*   Updated: 2023/12/18 19:27:52 by nsabia           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,8 +14,6 @@
 
 void	freeing(t_fractol *fract)
 {
-	free(fract->mlx);
-	free (fract->img);
 	free(fract);
 }
 
@@ -86,8 +84,6 @@ int	main(int argc, char **argv)
 	fract->width = 1920;
 	fract->height = 1080;
 	fract->zoom = 0.0;
-	fract->offsetx = 0.0;
-	fract->offsety = 0.0;
 	fract->mlx = mlx_init(fract->width, fract->height, "fractol", true);
 	fract->img = mlx_new_image(fract->mlx, fract->width, fract->height);
 	mlx_image_to_window(fract->mlx, fract->img, 0, 0);
