@@ -6,11 +6,11 @@
 /*   By: nsabia <nsabia@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/16 09:12:06 by noel              #+#    #+#             */
-/*   Updated: 2023/12/16 11:55:18 by nsabia           ###   ########.fr       */
+/*   Updated: 2023/12/18 15:35:02 by nsabia           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-# include "./fractol.h"
+#include "./fractol.h"
 
 void	press_esc(mlx_key_data_t keydata, void *params)
 {
@@ -45,9 +45,30 @@ void	mouse_scroll(double a, double b, void *params)
 		julia(fract);
 }
 
-void	resize_window(int width, int height, void *params)
+void	resize_window(int a, int b, void *params)
 {
 	t_fractol	*fract;
+	double		ratio;
+	double		new_ratio;
 
 	fract = (t_fractol *)params;
+	fract->width = a;
+	fract->height = b;
+	ratio = (double)fract->width / (double)fract->height;
+	new_ratio = (double)a / (double)b;
+	if (ratio < new_ratio)
+	{
+		fract->width = a;
+		fract->height = a / ratio;
+	}
+	else
+	{
+		fract->width = b * ratio;
+		fract->height = b;
+	}
+	mlx_resize_image(fract->img, fract->width, fract->height);
+	if (fract->fractal_type == 1)
+		mandelbrot(fract);
+	else if (fract->fractal_type == 2)
+		julia(fract);
 }

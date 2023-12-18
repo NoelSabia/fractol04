@@ -6,7 +6,7 @@
 /*   By: nsabia <nsabia@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/13 14:43:12 by nsabia            #+#    #+#             */
-/*   Updated: 2023/12/16 12:12:01 by nsabia           ###   ########.fr       */
+/*   Updated: 2023/12/18 17:36:20 by nsabia           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,38 +24,43 @@ void	mandelbrot(t_fractol *fract)
 	int			color;
 	int			i;
 
+	fract->scale = 5;
 	fract->my = 0;
-	while (fract->my < HEIGHT)
+	fract->fractal_type = 1;
+	while (fract->my < fract->height)
 	{
 		fract->mx = 0;
-		while (fract->mx < WIDTH)
+		while (fract->mx < fract->width)
 		{
 			i = mandelbrot_helper(fract);
-			color = (i * 255) / MAX_ITER;
+			color = (i * 255 / MAX_ITER);
 			mlx_put_pixel(fract->img, fract->mx, fract->my, color);
 			fract->mx++;
 		}
 		fract->my++;
 	}
-	mlx_image_to_window(fract->mlx, fract->img, 0, 0);
 }
 
 int	mandelbrot_helper(t_fractol *fract)
 {
-	int			i;
-	double		x_new;
+	int		i;
 
 	i = 0;
-	fract->x = 0.0;
-	fract->y = 0.0;
-	while (fract->x * fract->x + fract->y * fract->y
-		<= 2 * 2 && i < MAX_ITER)
+	fract->realpart = (fract->mx / fract->width - 0.6) * fract->scale;
+	fract->imagpart = (fract->my / (fract->height
+				/ (fract->height / fract->width)) - 0.3) * fract->scale;
+	fract->copyreal = fract->realpart;
+	fract->copyimag = fract->imagpart;
+	while (i < MAX_ITER)
 	{
-		x_new = fract->x * fract->x - fract->y
-			* fract->y + fract->mx * SCALE_FACTOR_X - 2.5;
-		fract->y = 2 * fract->x * fract->y
-			+ fract->my * SCALE_FACTOR_Y - 1.0;
-		fract->x = x_new;
+		fract->sqra = fract->realpart * fract->realpart;
+		fract->sqrb = fract->imagpart * fract->imagpart;
+		fract->sqr_diff = fract->sqra - fract->sqrb;
+		fract->product = 2 * fract->realpart * fract->imagpart;
+		fract->realpart = fract->sqr_diff + fract->copyreal;
+		fract->imagpart = fract->product + fract->copyimag;
+		if (fract->sqra + fract->sqrb > 3)
+			break ;
 		i++;
 	}
 	return (i);

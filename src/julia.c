@@ -6,7 +6,7 @@
 /*   By: nsabia <nsabia@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/13 14:44:02 by nsabia            #+#    #+#             */
-/*   Updated: 2023/12/15 12:15:31 by nsabia           ###   ########.fr       */
+/*   Updated: 2023/12/18 17:40:23 by nsabia           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,41 +22,39 @@ void	julia(t_fractol *fract)
 	int	i;
 
 	fract->my = 0;
-	while (fract->my < HEIGHT)
+	fract->scalej = 5;
+	while (fract->my < fract->height)
 	{
 		fract->mx = 0;
-		while (fract->mx < WIDTH)
+		while (fract->mx < fract->width)
 		{
 			i = julia_helper(fract);
-			color = (i * 255) / MAX_ITER;
+			color = (i * 255 / MAX_ITER);
 			mlx_put_pixel(fract->img, fract->mx, fract->my, color);
 			fract->mx++;
 		}
 		fract->my++;
 	}
-	mlx_image_to_window(fract->mlx, fract->img, 0, 0);
 }
 
 int	julia_helper(t_fractol *fract)
 {
-	int			i;
-	double		x_new;
+	int		i;
 
+	fract->realpart = (fract->mx / fract->width - 0.6) * fract->scalej;
+	fract->imagpart = (fract->my / (fract->height
+				/ (fract->height / fract->width)) - 0.3) * fract->scalej;
 	i = 0;
-	if (!fract->jx)
-		fract->jx = C_RE;
-	if (!fract->jy)
-		fract->jy = C_IM;
-	fract->x = fract->mx * SCALE_FACTOR_X - 2.5;
-	fract->y = fract->my * SCALE_FACTOR_Y - 1.0;
-	while (fract->x * fract->x + fract->y * fract->y
-		<= 2 * 2 && i < MAX_ITER)
+	while (i < MAX_ITER)
 	{
-		x_new = fract->x * fract->x - fract->y
-			* fract->y + fract->jx;
-		fract->y = 2 * fract->x * fract->y
-			+ fract->jy;
-		fract->x = x_new;
+		fract->sqraa = fract->realpart * fract->realpart;
+		fract->sqrbb = fract->imagpart * fract->imagpart;
+		fract->sqraa2 = fract->sqraa - fract->sqrbb;
+		fract->sqrbb2 = 2 * fract->realpart * fract->imagpart;
+		fract->realpart = fract->sqraa2 + fract->arg1;
+		fract->imagpart = fract->sqrbb2 + fract->arg2;
+		if (fract->sqraa + fract->sqrbb > 4)
+			break ;
 		i++;
 	}
 	return (i);

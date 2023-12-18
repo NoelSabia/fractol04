@@ -6,7 +6,7 @@
 /*   By: nsabia <nsabia@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/13 10:40:40 by nsabia            #+#    #+#             */
-/*   Updated: 2023/12/16 12:10:16 by nsabia           ###   ########.fr       */
+/*   Updated: 2023/12/18 17:28:16 by nsabia           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,6 +17,7 @@
 # include <unistd.h>
 # include <stdlib.h>
 # include <complex.h>
+# include <math.h>
 # include "./Libft00/libft.h"
 # include "./ft_printf01-master/ft_printf.h"
 # include "MLX42-master/include/MLX42/MLX42.h"
@@ -24,17 +25,31 @@
 typedef struct s_fractol
 {
 	int				fractal_type;
-	double			real;
-	double			imag;
-	double			x;
-	double			y;
 	int				mx;
 	int				my;
+	double			realpart;
+	double			imagpart;
+	double			copyimag;
+	double			copyreal;
+	double			scale;
+	double			scalej;
+	double			sqra;
+	double			sqrb;
+	double			sqr_diff;
+	double			product;
+	double			arg1;
+	double			arg2;
 	double			jx;
 	double			jy;
+	double			sqraa;
+	double			sqrbb;
+	double			sqraa2;
+	double			sqrbb2;
 	double			zoom;
 	double			offsetx;
 	double			offsety;
+	double			width;
+	double			height;
 	mlx_t			*mlx;
 	mlx_image_t		*img;
 }				t_fractol;
@@ -43,16 +58,6 @@ typedef struct s_fractol
 # define WIDTH 2560
 # define HEIGHT 1315
 # define MAX_ITER 100
-# define SCALE_FACTOR_X (3.5 / WIDTH)
-# define SCALE_FACTOR_Y (2.0 / HEIGHT)
-
-#ifndef C_RE
-# define C_RE -0.8
-#endif
-
-#ifndef C_IM
-# define C_IM -0.156
-#endif
 
 /*C-Files*/
 void	mandelbrot(t_fractol *fract);
