@@ -6,7 +6,7 @@
 /*   By: nsabia <nsabia@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/15 17:54:57 by nsabia            #+#    #+#             */
-/*   Updated: 2023/12/19 15:00:04 by nsabia           ###   ########.fr       */
+/*   Updated: 2023/12/19 19:15:55 by nsabia           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,7 +28,7 @@ double	ft_process_decimal_part(const char *str)
 	return (result);
 }
 
-double	ft_strtod(const char *str, char **endptr)
+double	ft_strtod(const char *str)
 {
 	int		sign;
 	double	result;
@@ -66,9 +66,9 @@ int	ft_isspace(int c)
 		return (0);
 }
 
-int	ft_no_num(int c)
+int	ft_no_num(char c)
 {
-	if (c >= 48 && c <= 57)
+	if ((c >= 48 && c <= 57) || c == 46 || c ==43 || c == 45)
 		return (0);
 	else
 		return (1);

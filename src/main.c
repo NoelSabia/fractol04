@@ -6,7 +6,7 @@
 /*   By: nsabia <nsabia@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/13 14:09:23 by nsabia            #+#    #+#             */
-/*   Updated: 2023/12/19 14:59:53 by nsabia           ###   ########.fr       */
+/*   Updated: 2023/12/19 19:13:11 by nsabia           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,12 +31,13 @@ void	julia_checker(char *str2, char *str3, t_fractol *fract)
 		if (ft_no_num(str2[i]) == 1 || ft_no_num(str3[i]) == 1)
 		{
 			ft_printf("Please just enter numbers as 2 and 3 parameter.\n");
+			freeing(fract);
 			exit(0);
 		}
 		i++;
 	}
-	arg1 = ft_strtod(str2, NULL);
-	arg2 = ft_strtod(str3, NULL);
+	arg1 = ft_strtod(str2);
+	arg2 = ft_strtod(str3);
 	fract->arg1 = arg1;
 	fract->arg2 = arg2;
 	fract->jx = fract->width;
