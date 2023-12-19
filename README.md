@@ -56,6 +56,4 @@ To does:
 - resize
 
 to do:
-- eine eval (done)
-- code umschreiben (done)
-- zoom fixxen (done)
+- finishing fractol 

@@ -6,7 +6,7 @@
 /*   By: nsabia <nsabia@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/13 14:43:12 by nsabia            #+#    #+#             */
-/*   Updated: 2023/12/18 17:36:20 by nsabia           ###   ########.fr       */
+/*   Updated: 2023/12/19 14:18:02 by nsabia           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +24,6 @@ void	mandelbrot(t_fractol *fract)
 	int			color;
 	int			i;
 
-	fract->scale = 5;
 	fract->my = 0;
 	fract->fractal_type = 1;
 	while (fract->my < fract->height)

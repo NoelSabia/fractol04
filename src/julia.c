@@ -6,7 +6,7 @@
 /*   By: nsabia <nsabia@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/13 14:44:02 by nsabia            #+#    #+#             */
-/*   Updated: 2023/12/18 17:40:23 by nsabia           ###   ########.fr       */
+/*   Updated: 2023/12/19 14:17:04 by nsabia           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,6 @@ void	julia(t_fractol *fract)
 	int	i;
 
 	fract->my = 0;
-	fract->scalej = 5;
 	while (fract->my < fract->height)
 	{
 		fract->mx = 0;

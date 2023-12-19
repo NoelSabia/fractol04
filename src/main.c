@@ -6,7 +6,7 @@
 /*   By: nsabia <nsabia@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/13 14:09:23 by nsabia            #+#    #+#             */
-/*   Updated: 2023/12/18 19:27:52 by nsabia           ###   ########.fr       */
+/*   Updated: 2023/12/19 14:59:53 by nsabia           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,15 +28,15 @@ void	julia_checker(char *str2, char *str3, t_fractol *fract)
 	arg2 = 0;
 	while (str2[i] != '\0' && str3[i] != '\0')
 	{
-		if (ft_isalpha(str2[i]) == 1 || ft_isalpha(str3[i]) == 1)
+		if (ft_no_num(str2[i]) == 1 || ft_no_num(str3[i]) == 1)
 		{
 			ft_printf("Please just enter numbers as 2 and 3 parameter.\n");
 			exit(0);
 		}
 		i++;
 	}
-	arg1 = strtod(str2, NULL);
-	arg2 = strtod(str3, NULL);
+	arg1 = ft_strtod(str2, NULL);
+	arg2 = ft_strtod(str3, NULL);
 	fract->arg1 = arg1;
 	fract->arg2 = arg2;
 	fract->jx = fract->width;
@@ -84,6 +84,8 @@ int	main(int argc, char **argv)
 	fract->width = 1920;
 	fract->height = 1080;
 	fract->zoom = 0.0;
+	fract->scale = 5;
+	fract->scalej = 5;
 	fract->mlx = mlx_init(fract->width, fract->height, "fractol", true);
 	fract->img = mlx_new_image(fract->mlx, fract->width, fract->height);
 	mlx_image_to_window(fract->mlx, fract->img, 0, 0);

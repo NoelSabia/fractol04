@@ -6,7 +6,7 @@
 /*   By: nsabia <nsabia@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/13 10:40:40 by nsabia            #+#    #+#             */
-/*   Updated: 2023/12/18 19:27:03 by nsabia           ###   ########.fr       */
+/*   Updated: 2023/12/19 15:00:28 by nsabia           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,6 +15,7 @@
 
 # include <stdio.h>
 # include <unistd.h>
+# include <ctype.h>
 # include <stdlib.h>
 # include <complex.h>
 # include <math.h>
@@ -64,6 +65,8 @@ void	julia(t_fractol *fract);
 int		julia_helper(t_fractol *fract);
 void	choose_fractal(int argc, char **argv, t_fractol *fract);
 void	freeing(t_fractol *fract);
+int		ft_no_num(int c);
+double	ft_strtod(const char *str, char **endptr);
 double	ft_atof(const char *s);
 void	press_esc(mlx_key_data_t keydata, void *params);
 void	mouse_scroll(double a, double b, void *params);
