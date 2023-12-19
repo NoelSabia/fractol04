@@ -6,7 +6,7 @@
 /*   By: nsabia <nsabia@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/16 09:12:06 by noel              #+#    #+#             */
-/*   Updated: 2023/12/18 19:33:21 by nsabia           ###   ########.fr       */
+/*   Updated: 2023/12/19 19:18:54 by nsabia           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,8 +39,6 @@ void	mouse_scroll(double a, double b, void *params)
 		zoom_factor = 0.9;
 	fract->scale *= zoom_factor;
 	fract->scalej *= zoom_factor;
-	printf("scale: %f\n", fract->scale);
-	printf("scalej: %f\n", fract->scalej);
 	if (fract->fractal_type == 1)
 		mandelbrot(fract);
 	else if (fract->fractal_type == 2)
